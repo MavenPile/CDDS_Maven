@@ -19,17 +19,18 @@ public:
 	void AddToIndex(int index, int newElement);	//	adds an element at an index
 	void RemoveAtIndex(int index);	//	removes an element from an index
 
-	void Sort();
+	void Sort();	//	bubble sorts the array
 	void Clean();	//	deallocates unused memory
 	void Clear();	//	clears the array
 
-	void Search();
+	int Search(int search);	//	binary search
 
-	int* Concatenate(DynamicArray& other);
-	int* operator + (DynamicArray& other);
+	int* Concatenate(DynamicArray& other);	//	concatenates other.m_data to m_data, and returns it
+	int* operator + (DynamicArray& other);	//	same as Concatenate()
 
 	void Randomise();
 
-	void Rotate();
+	void Rotate(int rotation);	//	shifts all elements in m_data by rotation
+								//	if overflow/underflow, elements wrap around
 };
 

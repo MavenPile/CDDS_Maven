@@ -91,6 +91,18 @@ void DynamicArray::RemoveAtIndex(int index)
 
 void DynamicArray::Sort()
 {
+	for (int i = m_usedMem; i > 0; i--)
+	{
+		for (int j = 0; j < i - 1; j++)
+		{
+			if (m_data[j] > m_data[j + 1])
+			{
+				int temp = m_data[j];
+				m_data[j] = m_data[j + 1];
+				m_data[j + 1] = temp;
+			}
+		}
+	}
 }
 
 void DynamicArray::Clean()
@@ -117,8 +129,36 @@ void DynamicArray::Clear()
 	m_usedMem = 0;
 }
 
-void DynamicArray::Search()
+int DynamicArray::Search(int search)
 {
+	Sort();
+
+	int pivot;
+	int startIndex = 0;
+	int endIndex = m_usedMem;
+	int pivotPoint;
+
+	while (startIndex <= endIndex)
+	{
+		pivot = (startIndex + endIndex) / 2;
+
+		pivotPoint = m_data[pivot];
+
+		if (pivotPoint == search)
+		{
+			return pivot;
+		}
+		else if (pivotPoint > m_data[pivot])
+		{
+			endIndex = pivot - 1;
+		}
+		else
+		{
+			startIndex = pivot + 1;
+		}
+	}
+
+	return -1;
 }
 
 int* DynamicArray::Concatenate(DynamicArray& other)
@@ -165,8 +205,22 @@ int* DynamicArray::operator+(DynamicArray& other)
 
 void DynamicArray::Randomise()
 {
+
 }
 
-void DynamicArray::Rotate()
+void DynamicArray::Rotate(int rotation)
 {
+	int* newData = new int[m_usedMem];
+
+	for (int i = 0; i < m_usedMem; i++)
+	{
+		if (i + rotation > m_usedMem)
+		{
+			newData[i] = m_data[m_usedMem - (i + rotation)];
+		}
+		else
+		{
+			newData[i] = m_data[i + rotation];
+		}
+	}
 }
