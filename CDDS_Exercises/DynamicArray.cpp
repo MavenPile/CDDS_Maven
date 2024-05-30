@@ -1,36 +1,41 @@
 #include "DynamicArray.h"
 
-DynamicArray::DynamicArray(int size)
+template<typename T>
+DynamicArray<T>::DynamicArray(int size)
 {
-	m_data = new int[size];
+	m_data = new T[size];
 	m_totalMem = size;
 	m_usedMem = 0;
 }
 
-DynamicArray::DynamicArray(DynamicArray& copy)
+template<typename T>
+DynamicArray<T>::DynamicArray(DynamicArray& copy)
 {
-	m_data = new int[*copy.m_data];
+	m_data = new T[*copy.m_data];
 	m_totalMem = copy.m_totalMem;
 	m_usedMem = copy.m_usedMem;
 }
 
-DynamicArray::~DynamicArray()
+template<typename T>
+DynamicArray<T>::~DynamicArray()
 {
 	delete[] m_data;
 }
 
-void DynamicArray::operator = (DynamicArray& copy)
+template<typename T>
+void DynamicArray<T>::operator = (DynamicArray& copy)
 {
-	m_data = new int[*copy.m_data];
+	m_data = new T[*copy.m_data];
 	m_totalMem = copy.m_totalMem;
 	m_usedMem = copy.m_usedMem;
 }
 
-void DynamicArray::AddToEnd(int newElement)
+template<typename T>
+void DynamicArray<T>::AddToEnd(T newElement)
 {
 	if (m_usedMem == m_totalMem)
 	{
-		int* newData = new int[m_totalMem * 2];
+		T* newData = new T[m_totalMem * 2];
 
 		for (int i = 0; i < m_totalMem; i++)
 		{
@@ -46,18 +51,20 @@ void DynamicArray::AddToEnd(int newElement)
 	m_usedMem += 1;
 }
 
-void DynamicArray::RemoveFromEnd()
+template<typename T>
+void DynamicArray<T>::RemoveFromEnd()
 {
 	m_usedMem -= 1;	//	the memory remains allocated
 					//	but this is fine, because it can still be overwritten,
 					//	or cleaned up by another function
 }
 
-void DynamicArray::AddToIndex(int index, int newElement)
+template<typename T>
+void DynamicArray<T>::AddToIndex(int index, T newElement)
 {
 	if (m_totalMem == m_usedMem)	//	if array is full
 	{
-		int* newData = new int[m_totalMem * 2];
+		int* newData = new T[m_totalMem * 2];
 		for (int i = 0; i < m_totalMem; i++)
 		{
 			newData[i] = m_data[i];
@@ -80,7 +87,8 @@ void DynamicArray::AddToIndex(int index, int newElement)
 	m_usedMem += 1;
 }
 
-void DynamicArray::RemoveAtIndex(int index)
+template<typename T>
+void DynamicArray<T>::RemoveAtIndex(int index)
 {
 	for (int i = index; i < m_usedMem; i++)
 	{
@@ -89,7 +97,8 @@ void DynamicArray::RemoveAtIndex(int index)
 	m_usedMem -= 1;
 }
 
-void DynamicArray::Sort()
+template<typename T>
+void DynamicArray<T>::Sort()
 {
 	for (int i = m_usedMem; i > 0; i--)
 	{
@@ -97,7 +106,7 @@ void DynamicArray::Sort()
 		{
 			if (m_data[j] > m_data[j + 1])
 			{
-				int temp = m_data[j];
+				T temp = m_data[j];
 				m_data[j] = m_data[j + 1];
 				m_data[j + 1] = temp;
 			}
@@ -105,7 +114,8 @@ void DynamicArray::Sort()
 	}
 }
 
-void DynamicArray::Clean()
+template<typename T>
+void DynamicArray<T>::Clean()
 {
 	if (m_usedMem < m_totalMem)
 	{
@@ -122,21 +132,21 @@ void DynamicArray::Clean()
 	}
 }
 
-void DynamicArray::Clear()
+template<typename T>
+void DynamicArray<T>::Clear()
 {
-	delete[] m_data;
-	m_totalMem = 0;
 	m_usedMem = 0;
 }
 
-int DynamicArray::Search(int search)
+template<typename T>
+int DynamicArray<T>::Search(T search)
 {
 	Sort();
 
 	int pivot;
 	int startIndex = 0;
 	int endIndex = m_usedMem;
-	int pivotPoint;
+	T pivotPoint;
 
 	while (startIndex <= endIndex)
 	{
@@ -161,9 +171,10 @@ int DynamicArray::Search(int search)
 	return -1;
 }
 
-int* DynamicArray::Concatenate(DynamicArray& other)
+template<typename T>
+int* DynamicArray<T>::Concatenate(DynamicArray& other)
 {
-	int* newData = new int[m_usedMem + other.m_usedMem];
+	T* newData = new T[m_usedMem + other.m_usedMem];
 	
 	for (int i = 0; i < m_usedMem; i++)
 	{
@@ -182,9 +193,10 @@ int* DynamicArray::Concatenate(DynamicArray& other)
 	return m_data;
 }
 
-int* DynamicArray::operator+(DynamicArray& other)
+template<typename T>
+int* DynamicArray<T>::operator+(DynamicArray& other)
 {
-	int* newData = new int[m_usedMem + other.m_usedMem];
+	T* newData = new T[m_usedMem + other.m_usedMem];
 
 	for (int i = 0; i < m_usedMem; i++)
 	{
@@ -203,7 +215,8 @@ int* DynamicArray::operator+(DynamicArray& other)
 	return m_data;
 }
 
-int DynamicArray::operator[](int index)
+template<typename T>
+int DynamicArray<T>::operator[](int index)
 {
 	return m_data[index];
 }
@@ -213,9 +226,10 @@ int DynamicArray::operator[](int index)
 //
 //}
 
-void DynamicArray::Rotate(int rotation)
+template<typename T>
+void DynamicArray<T>::Rotate(int rotation)
 {
-	int* newData = new int[m_usedMem];
+	T* newData = new T[m_usedMem];
 
 	for (int i = 0; i < m_usedMem; i++)
 	{
