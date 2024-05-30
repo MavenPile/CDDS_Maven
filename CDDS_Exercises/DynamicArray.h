@@ -28,6 +28,8 @@ public:
 	int* Concatenate(DynamicArray& other);	//	concatenates other.m_data to m_data, and returns it
 	int* operator + (DynamicArray& other);	//	same as Concatenate()
 
+	int operator [] (int index);
+
 	//void Randomise();
 
 	void Rotate(int rotation);	//	shifts all elements in m_data by rotation

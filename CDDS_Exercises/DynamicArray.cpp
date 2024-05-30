@@ -203,6 +203,11 @@ int* DynamicArray::operator+(DynamicArray& other)
 	return m_data;
 }
 
+int DynamicArray::operator[](int index)
+{
+	return m_data[index];
+}
+
 //void DynamicArray::Randomise()
 //{
 //
