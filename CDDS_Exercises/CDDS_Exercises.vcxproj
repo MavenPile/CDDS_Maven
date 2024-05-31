@@ -130,10 +130,16 @@
     <ClCompile Include="DLinkList.cpp" />
     <ClCompile Include="DynamicArray.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Deque.cpp" />
+    <ClCompile Include="Queue.cpp" />
+    <ClCompile Include="Stack.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DLinkList.h" />
     <ClInclude Include="DynamicArray.h" />
+    <ClInclude Include="Deque.h" />
+    <ClInclude Include="Queue.h" />
+    <ClInclude Include="Stack.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

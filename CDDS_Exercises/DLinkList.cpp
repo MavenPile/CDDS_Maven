@@ -1,6 +1,7 @@
 #include "DLinkList.h"
 
-void DLinkList::PushFront(float value)
+template<typename T>
+void DLinkList<T>::PushFront(T value)
 {
 	Node* newNode = new Node(value);	//	create a new node
 	newNode->m_next = m_head->GetNode();	//	new node points to current head
@@ -12,7 +13,8 @@ void DLinkList::PushFront(float value)
 	}
 }
 
-void DLinkList::PushBack(float value)
+template<typename T>
+void DLinkList<T>::PushBack(T value)
 {
 	//	Same as PushFront(), but on the tail instead
 
@@ -26,34 +28,40 @@ void DLinkList::PushBack(float value)
 	}
 }
 
-void DLinkList::InsertAfter(Iterator* iterator, float value)
+template<typename T>
+void DLinkList<T>::InsertAfter(Iterator* iterator, T value)
 {
 	Node* newNode = new Node(value);
 
 
 }
 
-DLinkList::Iterator* DLinkList::Begin()
+template<typename T>
+DLinkList<T>::Iterator* DLinkList<T>::Begin()
 {
 	return m_head;
 }
 
-DLinkList::Iterator* DLinkList::End()
+template<typename T>
+DLinkList<T>::Iterator* DLinkList<T>::End()
 {
 	return m_tail;
 }
 
-float DLinkList::First()
+template<typename T>
+T DLinkList<T>::First()
 {
 	return m_head->GetData();
 }
 
-float DLinkList::Last()
+template<typename T>
+T DLinkList<T>::Last()
 {
 	return m_tail->GetData();
 }
 
-int DLinkList::Count()
+template<typename T>
+int DLinkList<T>::Count()
 {
 	int count = 0;
 	
@@ -62,7 +70,8 @@ int DLinkList::Count()
 	return p_Counting(&iter, count);
 }
 
-int DLinkList::p_Counting(Iterator* iter, int& count)
+template<typename T>
+int DLinkList<T>::p_Counting(Iterator* iter, int& count)
 {
 	count += 1;	//	increase list count
 
@@ -76,7 +85,8 @@ int DLinkList::p_Counting(Iterator* iter, int& count)
 	return count;
 }
 
-void DLinkList::Erase(Iterator* iter)
+template<typename T>
+void DLinkList<T>::Erase(Iterator* iter)
 {
 	Iterator temp(iter);
 
@@ -86,14 +96,16 @@ void DLinkList::Erase(Iterator* iter)
 	delete temp.GetNode();
 }
 
-void DLinkList::Remove(float value)
+template<typename T>
+void DLinkList<T>::Remove(T value)
 {
 	Iterator iter(m_head);
 
 	p_RemoveNext(&iter, value);
 }
 
-void DLinkList::p_RemoveNext(Iterator* iter, float value)
+template<typename T>
+void DLinkList<T>::p_RemoveNext(Iterator* iter, T value)
 {
 	Iterator temp(iter);
 	
@@ -110,13 +122,15 @@ void DLinkList::p_RemoveNext(Iterator* iter, float value)
 	}
 }
 
-void DLinkList::PopBack()
+template<typename T>
+void DLinkList<T>::PopBack()
 {
 	m_tail->SetNode(m_tail->GetNode()->m_prev);	//	move current tail back one
 	delete m_tail->GetNode()->m_next;	//	delete previous tail
 }
 
-void DLinkList::PopFront()
+template<typename T>
+void DLinkList<T>::PopFront()
 {
 	//	same as PopBack() but for the head
 
@@ -124,7 +138,8 @@ void DLinkList::PopFront()
 	delete m_head->GetNode()->m_prev;
 }
 
-bool DLinkList::IsEmpty()
+template<typename T>
+bool DLinkList<T>::IsEmpty()
 {
 	Iterator iter(m_head);
 	
@@ -136,7 +151,8 @@ bool DLinkList::IsEmpty()
 	return false;
 }
 
-bool DLinkList::p_CheckEmpty(Iterator* iter)
+template<typename T>
+bool DLinkList<T>::p_CheckEmpty(Iterator* iter)
 {
 	if (0.f != iter->GetNode()->m_data)
 	{
@@ -151,7 +167,8 @@ bool DLinkList::p_CheckEmpty(Iterator* iter)
 	}
 }
 
-void DLinkList::Clear()
+template<typename T>
+void DLinkList<T>::Clear()
 {
 	Iterator iter(m_head);
 
