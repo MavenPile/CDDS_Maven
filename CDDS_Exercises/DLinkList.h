@@ -26,6 +26,7 @@ private:
 
 		Iterator() {}
 		Iterator(Node* n) { m_current = n; }
+		Iterator(Iterator* i) { m_current = i->GetNode(); }
 
 		void SetNode(Node* n) { m_current = n; }
 		void SetData(float d) { m_current->m_data = d; }
@@ -48,9 +49,9 @@ private:
 
 	//	PRIVATE METHODS
 
-	int p_Counting(Iterator& iterator, int& count);
-	void p_RemoveNext(Iterator& iterator, float value);
-	bool p_CheckEmpty(Iterator& iterator);
+	int p_Counting(Iterator* iterator, int& count);
+	void p_RemoveNext(Iterator* iterator, float value);
+	bool p_CheckEmpty(Iterator* iterator);
 
 public:
 
