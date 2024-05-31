@@ -129,12 +129,11 @@
   <ItemGroup>
     <ClCompile Include="DLinkList.cpp" />
     <ClCompile Include="DynamicArray.cpp" />
-    <ClCompile Include="LinkedList.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DLinkList.h" />
     <ClInclude Include="DynamicArray.h" />
-    <ClInclude Include="LinkedList.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

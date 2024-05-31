@@ -66,14 +66,14 @@ public:
 	void PushBack(float value);	//	adds a value to the end of the list
 	void InsertAfter(Iterator* iterator, float value);	//	inserts a value in the specified iterator
 
-	Iterator Begin();	//	returns an iterator for the beginning of the list
-	Iterator End();	//	returns an iterator for the end of the list
+	Iterator* Begin();	//	returns an iterator for the beginning of the list
+	Iterator* End();	//	returns an iterator for the end of the list
 	float First();	//	returns the first value of the list
 	float Last();	//	returns the last value of the list
 
 	int Count();	//	returns the number of values in the list
 
-	void Erase(Iterator* iterator);	//	removes an element in the list by its iterator
+	void Erase(Iterator* iter);	//	removes an element in the list by its iterator
 	void Remove(float value);	//	removes all elements containing the specified value
 	void PopBack();	//	removes the last element of the list
 	void PopFront();	//	removes the first element of the list

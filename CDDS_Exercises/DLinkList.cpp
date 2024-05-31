@@ -33,14 +33,14 @@ void DLinkList::InsertAfter(Iterator* iterator, float value)
 
 }
 
-DLinkList::Iterator DLinkList::Begin()
+DLinkList::Iterator* DLinkList::Begin()
 {
-	return Iterator();
+	return m_head;
 }
 
-DLinkList::Iterator DLinkList::End()
+DLinkList::Iterator* DLinkList::End()
 {
-	return Iterator();
+	return m_tail;
 }
 
 float DLinkList::First()
@@ -76,9 +76,14 @@ int DLinkList::p_Counting(Iterator* iter, int& count)
 	return count;
 }
 
-void DLinkList::Erase(Iterator* iterator)
+void DLinkList::Erase(Iterator* iter)
 {
+	Iterator temp(iter);
 
+	iter->GetNode()->m_next->m_prev = iter->GetNode()->m_prev->m_next;	//	set the next node's previous pointer to previous node
+	iter->GetNode()->m_prev->m_next = iter->GetNode()->m_next->m_prev;	//	set the previous node's next point to next node
+
+	delete temp.GetNode();
 }
 
 void DLinkList::Remove(float value)
