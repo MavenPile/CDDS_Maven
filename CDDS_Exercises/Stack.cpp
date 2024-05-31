@@ -54,6 +54,7 @@ void Stack<T>::Push(T value)
 		}
 
 		delete[] m_data;
+		m_data = temp;
 	}
 
 	m_data[m_top] = value;
