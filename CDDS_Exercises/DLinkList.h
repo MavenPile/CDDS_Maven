@@ -67,8 +67,8 @@ public:
 	void PushBack(T value);	//	adds a value to the end of the list
 	void InsertAfter(Iterator* iterator, T value);	//	inserts a value in the specified iterator
 
-	Iterator* Begin();	//	returns an iterator for the beginning of the list
-	Iterator* End();	//	returns an iterator for the end of the list
+	Iterator* Begin() { return m_head; }	//	returns an iterator for the beginning of the list
+	Iterator* End() { return m_tail; }	//	returns an iterator for the end of the list
 	T First();	//	returns the first value of the list
 	T Last();	//	returns the last value of the list
 

@@ -1,18 +1,8 @@
-﻿  DLinkList.cpp
-C:\Users\s214290\OneDrive - The Academy of Interactive Entertainment Ltd\GitHub\Repos\CDDS_Maven\CDDS_Exercises\DLinkList.cpp(40,23): error C2187: syntax error: '*' was unexpected here
-C:\Users\s214290\OneDrive - The Academy of Interactive Entertainment Ltd\GitHub\Repos\CDDS_Maven\CDDS_Exercises\DLinkList.cpp(41,1): error C2244: 'DLinkList<T>::Begin': unable to match function definition to an existing declaration
-C:\Users\s214290\OneDrive - The Academy of Interactive Entertainment Ltd\GitHub\Repos\CDDS_Maven\CDDS_Exercises\DLinkList.cpp(40,39): message : see declaration of 'DLinkList<T>::Begin'
-C:\Users\s214290\OneDrive - The Academy of Interactive Entertainment Ltd\GitHub\Repos\CDDS_Maven\CDDS_Exercises\DLinkList.cpp(41,1): message : definition
-C:\Users\s214290\OneDrive - The Academy of Interactive Entertainment Ltd\GitHub\Repos\CDDS_Maven\CDDS_Exercises\DLinkList.cpp(41,1): message : 'DLinkList DLinkList<T>::Begin(void)'
-C:\Users\s214290\OneDrive - The Academy of Interactive Entertainment Ltd\GitHub\Repos\CDDS_Maven\CDDS_Exercises\DLinkList.cpp(41,1): message : existing declarations
-C:\Users\s214290\OneDrive - The Academy of Interactive Entertainment Ltd\GitHub\Repos\CDDS_Maven\CDDS_Exercises\DLinkList.cpp(41,1): message : 'DLinkList<T>::Iterator *DLinkList<T>::Begin(void)'
-C:\Users\s214290\OneDrive - The Academy of Interactive Entertainment Ltd\GitHub\Repos\CDDS_Maven\CDDS_Exercises\DLinkList.cpp(46,23): error C2187: syntax error: '*' was unexpected here
-C:\Users\s214290\OneDrive - The Academy of Interactive Entertainment Ltd\GitHub\Repos\CDDS_Maven\CDDS_Exercises\DLinkList.cpp(47,1): error C2244: 'DLinkList<T>::End': unable to match function definition to an existing declaration
-C:\Users\s214290\OneDrive - The Academy of Interactive Entertainment Ltd\GitHub\Repos\CDDS_Maven\CDDS_Exercises\DLinkList.cpp(46,39): message : see declaration of 'DLinkList<T>::End'
-C:\Users\s214290\OneDrive - The Academy of Interactive Entertainment Ltd\GitHub\Repos\CDDS_Maven\CDDS_Exercises\DLinkList.cpp(47,1): message : definition
-C:\Users\s214290\OneDrive - The Academy of Interactive Entertainment Ltd\GitHub\Repos\CDDS_Maven\CDDS_Exercises\DLinkList.cpp(47,1): message : 'DLinkList DLinkList<T>::End(void)'
-C:\Users\s214290\OneDrive - The Academy of Interactive Entertainment Ltd\GitHub\Repos\CDDS_Maven\CDDS_Exercises\DLinkList.cpp(47,1): message : existing declarations
-C:\Users\s214290\OneDrive - The Academy of Interactive Entertainment Ltd\GitHub\Repos\CDDS_Maven\CDDS_Exercises\DLinkList.cpp(47,1): message : 'DLinkList<T>::Iterator *DLinkList<T>::End(void)'
+﻿  DynamicArray.cpp
+C:\Users\s214290\OneDrive - The Academy of Interactive Entertainment Ltd\GitHub\Repos\CDDS_Maven\CDDS_Exercises\Utils.h(100,5): error C3861: 'i': identifier not found
+C:\Users\s214290\OneDrive - The Academy of Interactive Entertainment Ltd\GitHub\Repos\CDDS_Maven\CDDS_Exercises\Utils.h(100,5): error C2065: 'i': undeclared identifier
   main.cpp
-  Stack.cpp
+C:\Users\s214290\OneDrive - The Academy of Interactive Entertainment Ltd\GitHub\Repos\CDDS_Maven\CDDS_Exercises\Utils.h(100,5): error C3861: 'i': identifier not found
+C:\Users\s214290\OneDrive - The Academy of Interactive Entertainment Ltd\GitHub\Repos\CDDS_Maven\CDDS_Exercises\Utils.h(100,5): error C2065: 'i': undeclared identifier
+C:\Users\s214290\OneDrive - The Academy of Interactive Entertainment Ltd\GitHub\Repos\CDDS_Maven\CDDS_Exercises\main.cpp(14,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   Generating Code...

@@ -37,18 +37,6 @@ void DLinkList<T>::InsertAfter(Iterator* iterator, T value)
 }
 
 template<typename T>
-DLinkList<T>::Iterator* DLinkList<T>::Begin()
-{
-	return m_head;
-}
-
-template<typename T>
-DLinkList<T>::Iterator* DLinkList<T>::End()
-{
-	return m_tail;
-}
-
-template<typename T>
 T DLinkList<T>::First()
 {
 	return m_head->GetData();

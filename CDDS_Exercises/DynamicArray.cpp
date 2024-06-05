@@ -1,4 +1,5 @@
 #include "DynamicArray.h"
+#include "Utils.h"
 
 template<typename T>
 DynamicArray<T>::DynamicArray(int size)
@@ -100,18 +101,7 @@ void DynamicArray<T>::RemoveAtIndex(int index)
 template<typename T>
 void DynamicArray<T>::Sort()
 {
-	for (int i = m_usedMem; i > 0; i--)
-	{
-		for (int j = 0; j < i - 1; j++)
-		{
-			if (m_data[j] > m_data[j + 1])
-			{
-				T temp = m_data[j];
-				m_data[j] = m_data[j + 1];
-				m_data[j + 1] = temp;
-			}
-		}
-	}
+	BubbleSort(m_data, m_usedMem);
 }
 
 template<typename T>
