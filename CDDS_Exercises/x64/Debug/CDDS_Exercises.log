@@ -1,8 +1,5 @@
 ﻿  DynamicArray.cpp
-C:\Users\s214290\OneDrive - The Academy of Interactive Entertainment Ltd\GitHub\Repos\CDDS_Maven\CDDS_Exercises\Utils.h(100,5): error C3861: 'i': identifier not found
-C:\Users\s214290\OneDrive - The Academy of Interactive Entertainment Ltd\GitHub\Repos\CDDS_Maven\CDDS_Exercises\Utils.h(100,5): error C2065: 'i': undeclared identifier
   main.cpp
-C:\Users\s214290\OneDrive - The Academy of Interactive Entertainment Ltd\GitHub\Repos\CDDS_Maven\CDDS_Exercises\Utils.h(100,5): error C3861: 'i': identifier not found
-C:\Users\s214290\OneDrive - The Academy of Interactive Entertainment Ltd\GitHub\Repos\CDDS_Maven\CDDS_Exercises\Utils.h(100,5): error C2065: 'i': undeclared identifier
-C:\Users\s214290\OneDrive - The Academy of Interactive Entertainment Ltd\GitHub\Repos\CDDS_Maven\CDDS_Exercises\main.cpp(14,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\s214290\OneDrive - The Academy of Interactive Entertainment Ltd\GitHub\Repos\CDDS_Maven\CDDS_Exercises\main.cpp(15,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   Generating Code...
+  CDDS_Exercises.vcxproj -> C:\Users\s214290\OneDrive - The Academy of Interactive Entertainment Ltd\GitHub\Repos\CDDS_Maven\CDDS_Exercises\x64\Debug\CDDS_Exercises.exe

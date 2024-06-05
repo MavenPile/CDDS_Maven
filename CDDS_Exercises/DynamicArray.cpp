@@ -101,7 +101,7 @@ void DynamicArray<T>::RemoveAtIndex(int index)
 template<typename T>
 void DynamicArray<T>::Sort()
 {
-	BubbleSort(m_data, m_usedMem);
+	BubbleSort(m_data,m_usedMem);
 }
 
 template<typename T>
