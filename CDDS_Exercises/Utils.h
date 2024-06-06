@@ -82,8 +82,8 @@ void Merge(T* A, int p, int q, int r)	//	list, start, mid, end
 {
 	int leftEnd = q - p + 1;
 	int rightEnd = r - q;
-	T* L = new T[rightEnd - p];
-	T* R = new T[leftEnd - p];
+	T* L = new T[leftEnd];
+	T* R = new T[rightEnd];
 
 	for (int i = 0; i < leftEnd; i++)
 	{
@@ -99,12 +99,7 @@ void Merge(T* A, int p, int q, int r)	//	list, start, mid, end
 
 	for (int k = p; k < r; k++)
 	{
-		if (j >= rightEnd)
-		{
-			A[k] = L[i];
-			i++;
-		}
-		else if (i < leftEnd && L[i] <= R[j])
+		if (j >= rightEnd || (i < leftEnd && L[i] <= R[j]))
 		{
 			A[k] = L[i];
 			i++;
@@ -115,6 +110,9 @@ void Merge(T* A, int p, int q, int r)	//	list, start, mid, end
 			j++;
 		}
 	}
+
+	delete[] L;
+	delete[] R;
 }
 
 template<typename T>
