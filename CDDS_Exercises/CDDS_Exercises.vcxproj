@@ -129,6 +129,8 @@
   <ItemGroup>
     <ClCompile Include="DLinkList.cpp" />
     <ClCompile Include="DynamicArray.cpp" />
+    <ClCompile Include="HashFunction.cpp" />
+    <ClCompile Include="HashTable.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Deque.cpp" />
     <ClCompile Include="Queue.cpp" />
@@ -138,6 +140,8 @@
     <ClInclude Include="DLinkList.h" />
     <ClInclude Include="DynamicArray.h" />
     <ClInclude Include="Deque.h" />
+    <ClInclude Include="HashFunction.h" />
+    <ClInclude Include="HashTable.h" />
     <ClInclude Include="Queue.h" />
     <ClInclude Include="Stack.h" />
     <ClInclude Include="Utils.h" />

@@ -1,5 +1,5 @@
-﻿  DynamicArray.cpp
-  main.cpp
-C:\Users\s214290\OneDrive - The Academy of Interactive Entertainment Ltd\GitHub\Repos\CDDS_Maven\CDDS_Exercises\main.cpp(15,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+﻿  HashFunction.cpp
+  HashTable.cpp
+C:\Users\s214290\OneDrive - The Academy of Interactive Entertainment Ltd\GitHub\Repos\CDDS_Maven\CDDS_Exercises\HashTable.cpp(22,19): error C3861: 'hash': identifier not found
+C:\Users\s214290\OneDrive - The Academy of Interactive Entertainment Ltd\GitHub\Repos\CDDS_Maven\CDDS_Exercises\HashTable.cpp(22,23): message : 'hash': function declaration must be available as none of the arguments depend on a template parameter
   Generating Code...
-  CDDS_Exercises.vcxproj -> C:\Users\s214290\OneDrive - The Academy of Interactive Entertainment Ltd\GitHub\Repos\CDDS_Maven\CDDS_Exercises\x64\Debug\CDDS_Exercises.exe
