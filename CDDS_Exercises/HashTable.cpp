@@ -15,11 +15,10 @@ HashTable<T>::~HashTable() {
 }
 
 template<typename T>
-void HashTable<T>::Add(T& object, const string& key) {
-	unsigned int hashedKey = HashFunction(key);	//	hash key
-	//hashedKey = hashedKey % m_size;	//	clamp hashedKey value to fit in table
+void HashTable<T>::Add(T& item, const string& key) {
+	unsigned int hashedKey = HashFunction(key);	//	hash the key
 
-	m_data[hashedKey] = object;
+	m_data[hashedKey % m_size] = item;
 }
 
 template<typename T>
@@ -28,11 +27,16 @@ void HashTable<T>::Remove(const string& key) {
 	//hashedKey = hashedKey % m_size;
 
 	delete m_data[hashedKey];
+	m_data[hashedKey] = nullptr;
 }
 
 template<typename T>
 void HashTable<T>::Clear(const string& key) {
-	
+	for (int i = 0; i < m_size; i++)
+	{
+		delete m_data[i];
+		m_data[i] = nullptr;
+	}
 }
 
 template<typename T>
