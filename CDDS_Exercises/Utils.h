@@ -80,39 +80,99 @@ void QuickSort(T* list, int min, int max)
 template<typename T>
 void Merge(T* A, int p, int q, int r)	//	list, start, mid, end
 {
-	int leftEnd = q - p + 1;
-	int rightEnd = r - q;
-	T* L = new T[leftEnd];
-	T* R = new T[rightEnd];
+	//int leftEnd = q - p + 1;
+	//int rightEnd = r - q;
+	//T* L = new T[leftEnd];
+	//T* R = new T[rightEnd];
 
-	for (int i = 0; i < leftEnd; i++)
+	//for (int i = 0; i < leftEnd; i++)
+	//{
+	//	L[i] = A[p + i];
+	//}
+	//for (int j = 0; j < rightEnd; j++)
+	//{
+	//	R[j] = A[q + j + 1];
+	//}
+
+	//int i = 0;
+	//int j = 0;
+
+	//for (int k = p; k < r; k++)
+	//{
+	//	if (rightEnd <= j || (i < leftEnd && L[i] <= R[j]))	//	over-complex
+	//	{
+	//		A[k] = L[i];
+	//		i++;
+	//	}
+	//	else
+	//	{
+	//		A[k] = R[j];
+	//		j++;
+	//	}
+	//}
+
+	//delete[] L;
+	//delete[] R;
+
+
+	//	sizes of sub-arrays
+	int n1 = q - p + 1;
+	int n2 = r - q;
+
+	//	sub-arrays
+	T* L = new T[n1];
+		
+	T* M = new T[n2];
+
+	//	copy relevant information into sub-arrays
+	for (int i = 0; i < n1; i++)
 	{
 		L[i] = A[p + i];
 	}
-	for (int j = 0; j < rightEnd; j++)
+	for (int j = 0; j < n2; j++)
 	{
-		R[j] = A[q + j + 1];
+		M[j] = A[q + 1 + j];
 	}
 
-	int i = 0;
-	int j = 0;
+	//	initialise variables
+	int i, j, k;
+	i = 0;
+	j = 0;
+	k = p;
 
-	for (int k = p; k < r; k++)
+	//	merge and sort sub-arrays into the main array
+	while (i < n1 && j < n2)
 	{
-		if (j >= rightEnd || (i < leftEnd && L[i] <= R[j]))
+		if (L[i] <= M[j])
 		{
 			A[k] = L[i];
 			i++;
 		}
 		else
 		{
-			A[k] = R[j];
+			A[k] = M[j];
 			j++;
 		}
+
+		k++;
+	}
+
+	//	add any remainder of sub-arrays to main array, if either sub-array is larger than the other
+	while (i < n1)
+	{
+		A[k] = L[i];
+		i++;
+		k++;
+	}
+	while (j < n2)
+	{
+		A[k] = M[j];
+		j++;
+		k++;
 	}
 
 	delete[] L;
-	delete[] R;
+	delete[] M;
 }
 
 template<typename T>
