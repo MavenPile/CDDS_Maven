@@ -8,52 +8,36 @@
 
 Game::Game()
 {
-    // Initialization
-//--------------------------------------------------------------------------------------
+    // WINDOW
     m_screenW = 800;
     m_screenH = 450;
-
     InitWindow(m_screenW, m_screenH, "raylib [core] example - basic window");
 
-    //SetTargetFPS(60);
-    //--------------------------------------------------------------------------------------
-
+    //  RANDOM SEED
     srand(time(NULL));
 
-
-
-    // create some critters
-    const int CRITTER_COUNT = 50;
-    const int MAX_VELOCITY = 80;
-
-    for (int i = 0; i < CRITTER_COUNT; i++)
+    // INITIALISATION
+    for (int i = 0; i < m_CRITTER_COUNT; i++)
     {
         // create a random direction vector for the velocity
         Vector2 velocity = { -100 + (rand() % 200), -100 + (rand() % 200) };
         // normalize and scale by a random speed
-        velocity = Vector2Scale(Vector2Normalize(velocity), MAX_VELOCITY);
+        velocity = Vector2Scale(Vector2Normalize(velocity), m_MAX_VELOCITY);
 
         // create a critter in a random location
         m_critters[i]->Init(
-            { (float)(5 + rand() % (m_screenW - 10)), (float)(5 + (rand() % m_screenH - 10)) },
+            Vector2{ (float)(5 + rand() % (m_screenW - 10)), (float)(5 + (rand() % m_screenH - 10)) },
             velocity,
             12, "res/10.png");
     }
 
-
+    //  DESTROYER
     Vector2 velocity = { -100 + (rand() % 200), -100 + (rand() % 200) };
-    velocity = Vector2Scale(Vector2Normalize(velocity), MAX_VELOCITY);
+    velocity = Vector2Scale(Vector2Normalize(velocity), m_MAX_VELOCITY);
     m_destroyer->Init(Vector2{ (float)(m_screenW >> 1), (float)(m_screenH >> 1) }, velocity, 20, "res/9.png");
 
     m_timer = 1;
     m_nextSpawnPos = m_destroyer->GetPosition();
-}
-
-Game::Game(int width, int height)
-{
-	Game::Game();
-
-
 }
 
 Game::~Game()
@@ -209,4 +193,6 @@ void Game::Run()
     }
 
     CloseWindow();
+
+    std::cout << m_totalFPS / m_frameCount << std::endl;
 }

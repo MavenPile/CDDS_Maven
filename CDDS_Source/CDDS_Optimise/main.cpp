@@ -34,7 +34,7 @@ int main()
 //#include <time.h>
 //#include "Critter.h"
 //#include <iostream>
-
+//
 //int main(int argc, char* argv[])
 //{
 //    // Initialization
@@ -242,6 +242,8 @@ int main()
 //    //--------------------------------------------------------------------------------------   
 //    CloseWindow();        // Close window and OpenGL context
 //    //--------------------------------------------------------------------------------------
+//
+//    std::cout << aveFPS << std::endl;
 //
 //    return 0;
 //}

@@ -10,7 +10,7 @@ class Critter;
 
 class Game
 {
-private:
+public:
 
 	//	CONSTANTS
 	const int m_CRITTER_COUNT = 50;
@@ -34,7 +34,6 @@ private:
 public:
 
 	Game();
-	Game(int width, int height);
 	~Game();
 
 	void Run();
