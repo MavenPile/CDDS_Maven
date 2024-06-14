@@ -2,10 +2,13 @@
 
 #include "raylib.h"
 #include "raymath.h"
-#include "raylib-cpp.hpp"
 #include <random>
 #include <time.h>
 #include <iostream>
+
+#include "raylib-cpp.hpp"
+
+#include "HashTable.h"
 
 class Critter;
 
@@ -28,6 +31,10 @@ private:
 
 	Critter* m_destroyer;
 	Vector2 m_nextSpawnPos;
+
+	//	TEXTURES
+
+	HashTable<Texture2D> m_textures;
 
 	//	AVE FPS CALC
 	int m_totalFPS = 0;

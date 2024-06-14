@@ -16,7 +16,11 @@ Game::Game()
     //  RANDOM SEED
     srand(time(NULL));
 
-    // INITIALISATION
+    //  INITIALISING TEXTURES
+
+    m_textures.Add(raylib::Texture2D("res/10.png"), "critter_sprite");
+
+    //  INITIALISING CRITTERS
     for (int i = 0; i < m_CRITTER_COUNT; i++)
     {
         // create a random direction vector for the velocity
@@ -33,7 +37,7 @@ Game::Game()
             12, "res/10.png");
     }
 
-    //  DESTROYER
+    //  INITIALISING DESTROYER
     m_destroyer = new Critter();
     Vector2 velocity = { -100 + (rand() % 200), -100 + (rand() % 200) };
     velocity = Vector2Scale(Vector2Normalize(velocity), m_MAX_VELOCITY);
