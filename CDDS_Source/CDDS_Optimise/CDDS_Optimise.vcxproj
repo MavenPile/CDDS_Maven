@@ -171,15 +171,11 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="HashTable.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Resource.cpp" />
-    <ClCompile Include="ResourceManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Critter.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="HashTable.h" />
-    <ClInclude Include="Resource.h" />
-    <ClInclude Include="ResourceManager.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
