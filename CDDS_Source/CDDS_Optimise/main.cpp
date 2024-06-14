@@ -82,7 +82,7 @@ int main()
 //    //  Calc Ave FPS
 //
 //    int totalFPS = 0;
-//    float aveFPS = 0.f;
+//    int aveFPS = 0;
 //    int frameCount = 0;
 //
 //    // Main game loop
@@ -227,10 +227,7 @@ int main()
 //    
 //        frameCount++;
 //        totalFPS += GetFPS();
-//
 //        aveFPS = totalFPS / frameCount;
-//
-//        std::cout << aveFPS << std::endl;
 //    }
 //
 //    for (int i = 0; i < CRITTER_COUNT; i++)

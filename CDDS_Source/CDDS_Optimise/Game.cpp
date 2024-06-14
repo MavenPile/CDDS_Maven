@@ -11,7 +11,7 @@ Game::Game()
     // WINDOW
     m_screenW = 800;
     m_screenH = 450;
-    InitWindow(m_screenW, m_screenH, "raylib [core] example - basic window");
+    m_window = new raylib::Window(m_screenW,m_screenH, "Critters vs. Destroyer");
 
     //  RANDOM SEED
     srand(time(NULL));
@@ -24,6 +24,8 @@ Game::Game()
         // normalize and scale by a random speed
         velocity = Vector2Scale(Vector2Normalize(velocity), m_MAX_VELOCITY);
 
+        m_critters[i] = new Critter();
+
         // create a critter in a random location
         m_critters[i]->Init(
             Vector2{ (float)(5 + rand() % (m_screenW - 10)), (float)(5 + (rand() % m_screenH - 10)) },
@@ -32,6 +34,7 @@ Game::Game()
     }
 
     //  DESTROYER
+    m_destroyer = new Critter();
     Vector2 velocity = { -100 + (rand() % 200), -100 + (rand() % 200) };
     velocity = Vector2Scale(Vector2Normalize(velocity), m_MAX_VELOCITY);
     m_destroyer->Init(Vector2{ (float)(m_screenW >> 1), (float)(m_screenH >> 1) }, velocity, 20, "res/9.png");
@@ -42,12 +45,17 @@ Game::Game()
 
 Game::~Game()
 {
+    for (int i = 0; i < m_CRITTER_COUNT; i++)
+    {
+        delete m_critters[i];
+    }
 
+    delete m_destroyer;
 }
 
 void Game::Run()
 {
-	while (!WindowShouldClose)
+	while (!m_window->ShouldClose())
 	{
 		//	UPDATE
         float delta = GetFrameTime();
@@ -183,8 +191,12 @@ void Game::Run()
 
         m_frameCount++;
         m_totalFPS += GetFPS();
-
-        std::cout << m_totalFPS / m_frameCount << std::endl;
+        m_aveFPS = m_totalFPS / m_frameCount;
+        
+        if (10 <= GetTime())
+        {
+            m_window->Close();
+        }
 	}
 
     for (int i = 0; i < m_CRITTER_COUNT; i++)
@@ -192,7 +204,5 @@ void Game::Run()
         m_critters[i]->Destroy();
     }
 
-    CloseWindow();
-
-    std::cout << m_totalFPS / m_frameCount << std::endl;
+    std::cout << m_aveFPS << std::endl;
 }
