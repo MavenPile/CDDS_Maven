@@ -1,16 +1,10 @@
 #pragma once
 
-#include "raylib.h"
-#include "raymath.h"
-#include <random>
-#include <time.h>
-#include <iostream>
-
 #include "raylib-cpp.hpp"
-
 #include "HashTable.h"
 
 class Critter;
+class Vector2;
 
 class Game
 {

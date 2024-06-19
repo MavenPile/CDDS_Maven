@@ -21,6 +21,25 @@ unsigned int HashTable<T>::HashFunction(const char* key)
 }
 
 template<typename T>
+const unsigned int HashTable<T>::HashFunction(const char* key) const
+{
+	unsigned int hash = 0, x = 0;
+
+	for (unsigned int i = 0; i < strlen(key); i++)
+	{
+		hash = (hash << 4) + key[i];
+
+		if ((x = hash & 0xF0000000L) != 0)
+		{
+			hash ^= (x >> 24);
+			hash &= ~x;
+		}
+	}
+
+	return (hash & 0x7FFFFFFF) % m_size;
+}
+
+template<typename T>
 HashTable<T>::HashTable()
 {
 	m_size = 100;
@@ -75,13 +94,20 @@ T& HashTable<T>::DataAt(const char* key)
 }
 
 template<typename T>
+const T& HashTable<T>::DataAt(const char* key) const
+{
+	unsigned int hashedKey = HashFunction(key);
+	return m_data[hashedKey];
+}
+
+template<typename T>
 T& HashTable<T>::operator[](const char* key)
 {
-	DataAt(key);
+	return DataAt(key);
 }
 
 template<typename T>
 const T& HashTable<T>::operator[](const char* key) const
 {
-	DataAt(key);
+	return DataAt(key);
 }
