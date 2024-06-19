@@ -60,7 +60,7 @@ HashTable<T>::~HashTable()
 }
 
 template<typename T>
-void HashTable<T>::Add(T& item, const char* key)
+void HashTable<T>::Add(const T& item, const char* key)
 {
 	unsigned int hashedKey = HashFunction(key);
 

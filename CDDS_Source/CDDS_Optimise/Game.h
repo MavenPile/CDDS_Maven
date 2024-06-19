@@ -28,7 +28,7 @@ private:
 
 	//	TEXTURES
 
-	HashTable<raylib::Texture2D*> m_textures;
+	HashTable<Texture2D*> m_textures;
 
 	//	AVE FPS CALC
 	int m_totalFPS = 0;

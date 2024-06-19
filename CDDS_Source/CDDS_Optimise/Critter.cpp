@@ -14,7 +14,7 @@ Critter::~Critter()
 	m_isLoaded = false;
 }
 
-void Critter::Init(Vector2 position, Vector2 velocity, float radius, raylib::Texture2D* texture)
+void Critter::Init(Vector2 position, Vector2 velocity, float radius, Texture2D* texture)
 {
 	m_position = position;
 	m_velocity = velocity;
@@ -48,5 +48,5 @@ void Critter::Draw()
 	if (m_isLoaded == false)
 		return;
 
-	m_texture->Draw(m_position.x, m_position.y, WHITE);
+	DrawTexture(*m_texture, m_position.x, m_position.y, WHITE);
 }
