@@ -10,6 +10,7 @@ private:
 	unsigned int m_size;
 
 public:
+	HashTable();
 	HashTable(unsigned int size);
 	~HashTable();
 

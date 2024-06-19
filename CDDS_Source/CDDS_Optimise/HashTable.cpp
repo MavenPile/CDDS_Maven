@@ -21,6 +21,13 @@ unsigned int HashTable<T>::HashFunction(const char* key)
 }
 
 template<typename T>
+HashTable<T>::HashTable()
+{
+	m_size = 100;
+	m_data = new T[m_size];
+}
+
+template<typename T>
 HashTable<T>::HashTable(unsigned int size)
 {
 	m_size = size;

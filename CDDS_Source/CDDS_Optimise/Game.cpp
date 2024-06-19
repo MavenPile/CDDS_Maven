@@ -18,7 +18,8 @@ Game::Game()
 
     //  INITIALISING TEXTURES
 
-    m_textures.Add(raylib::Texture2D("res/10.png"), "critter_sprite");
+    m_textures.Add(new raylib::Texture2D("res/10.png"), "critter_sprite");
+    m_textures.Add(new raylib::Texture2D("res/9.png"), "destroyer_sprite");
 
     //  INITIALISING CRITTERS
     for (int i = 0; i < m_CRITTER_COUNT; i++)
@@ -55,6 +56,9 @@ Game::~Game()
     }
 
     delete m_destroyer;
+
+    delete m_textures["critter_sprite"];
+    delete m_textures["destroyer_sprite"];
 }
 
 void Game::Run()
