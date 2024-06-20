@@ -1,5 +1,6 @@
 #pragma once
 #include "raylib-cpp.hpp"
+#include "raymath.h"
 
 class Critter
 {

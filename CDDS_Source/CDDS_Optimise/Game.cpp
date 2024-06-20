@@ -4,7 +4,6 @@
 #include <random>
 #include <time.h>
 #include <iostream>
-#include "HashTable.h"
 
 Game::Game()
 {
@@ -17,10 +16,24 @@ Game::Game()
     srand(time(NULL));
 
     //  INITIALISING TEXTURES
-    Texture2D critTex = LoadTexture("res/10.png");
-    Texture2D desTex = LoadTexture("res/9.png");
-    m_textures.Add(&critTex, "critter_texture");
-    m_textures.Add(&desTex, "destroyer_texture");
+    Texture2D* critTex = new (Texture2D)(LoadTexture("res/10.png"));
+    Texture2D* desTex = new (Texture2D)(LoadTexture("res/9.png"));
+
+    if (!IsTextureReady(*critTex))
+    {
+        std::cout << "critTex failed to load properly..." << std::endl;
+        
+        m_window->Close();
+    }
+    else if (!IsTextureReady(*desTex))
+    {
+        std::cout << "desTex failed to load properly..." << std::endl;
+        
+        m_window->Close();
+    }
+
+    m_textures.Add(critTex, "critter_texture");
+    m_textures.Add(desTex, "destroyer_texture");
 
     //  INITIALISING CRITTERS
     for (int i = 0; i < m_CRITTER_COUNT; i++)

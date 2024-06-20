@@ -2,6 +2,7 @@
 
 #include "raylib-cpp.hpp"
 #include "HashTable.h"
+#include "HashTable.cpp"
 
 class Critter;
 class Vector2;
