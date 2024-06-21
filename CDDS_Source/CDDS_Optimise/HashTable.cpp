@@ -72,8 +72,7 @@ void HashTable<T>::Remove(const char* key)
 {
 	unsigned int hashedKey = HashFunction(key);
 
-	delete m_data[hashedKey];
-	m_data[hashedKey] = nullptr;
+	m_data[hashedKey] = NULL;
 }
 
 template<typename T>
@@ -81,8 +80,7 @@ void HashTable<T>::Clear()
 {
 	for (int i = 0; i < m_size; i++)
 	{
-		delete m_data[i];
-		m_data[i] = nullptr;
+		m_data[i] = NULL;
 	}
 }
 
