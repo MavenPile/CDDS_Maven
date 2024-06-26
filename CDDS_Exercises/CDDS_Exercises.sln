@@ -5,6 +5,8 @@ VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CDDS_Exercises", "CDDS_Exercises.vcxproj", "{D9557F4D-430E-4176-9155-8B1975D5F6E8}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CDDS_Tests", "..\CDDS_Tests\CDDS_Tests.vcxproj", "{835D0865-86F0-4352-A3A0-87D21C961130}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{D9557F4D-430E-4176-9155-8B1975D5F6E8}.Release|x64.Build.0 = Release|x64
 		{D9557F4D-430E-4176-9155-8B1975D5F6E8}.Release|x86.ActiveCfg = Release|Win32
 		{D9557F4D-430E-4176-9155-8B1975D5F6E8}.Release|x86.Build.0 = Release|Win32
+		{835D0865-86F0-4352-A3A0-87D21C961130}.Debug|x64.ActiveCfg = Debug|x64
+		{835D0865-86F0-4352-A3A0-87D21C961130}.Debug|x64.Build.0 = Debug|x64
+		{835D0865-86F0-4352-A3A0-87D21C961130}.Debug|x86.ActiveCfg = Debug|Win32
+		{835D0865-86F0-4352-A3A0-87D21C961130}.Debug|x86.Build.0 = Debug|Win32
+		{835D0865-86F0-4352-A3A0-87D21C961130}.Release|x64.ActiveCfg = Release|x64
+		{835D0865-86F0-4352-A3A0-87D21C961130}.Release|x64.Build.0 = Release|x64
+		{835D0865-86F0-4352-A3A0-87D21C961130}.Release|x86.ActiveCfg = Release|Win32
+		{835D0865-86F0-4352-A3A0-87D21C961130}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

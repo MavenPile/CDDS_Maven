@@ -43,14 +43,14 @@ template<typename T>
 HashTable<T>::HashTable()
 {
 	m_size = 100;
-	m_data = new T[m_size];
+	m_data = new Bucket[m_size];
 }
 
 template<typename T>
 HashTable<T>::HashTable(unsigned int size)
 {
 	m_size = size;
-	m_data = new T[m_size];
+	m_data = new Bucket[m_size];
 }
 
 template<typename T>
@@ -64,7 +64,12 @@ void HashTable<T>::Add(const T& item, const char* key)
 {
 	unsigned int hashedKey = HashFunction(key);
 
-	m_data[hashedKey] = item;
+	while (m_data[hashedKey].Data() != NULL)
+	{
+		hashedKey++;
+	}
+
+	m_data[hashedKey].Add(item, key);
 }	//	currently doesn't avoid collisions
 
 template<typename T>
@@ -72,7 +77,12 @@ void HashTable<T>::Remove(const char* key)
 {
 	unsigned int hashedKey = HashFunction(key);
 
-	m_data[hashedKey] = NULL;
+	while (m_data[hashedKey].Key() != key)
+	{
+		hashedKey++;
+	}
+
+	m_data[hashedKey].Clear();
 }
 
 template<typename T>
@@ -80,7 +90,7 @@ void HashTable<T>::Clear()
 {
 	for (int i = 0; i < m_size; i++)
 	{
-		m_data[i] = NULL;
+		m_data[i].Clear();
 	}
 }
 
@@ -88,14 +98,14 @@ template<typename T>
 T& HashTable<T>::DataAt(const char* key)
 {
 	unsigned int hashedKey = HashFunction(key);
-	return m_data[hashedKey];
+	return m_data[hashedKey].Data();
 }
 
 template<typename T>
 const T& HashTable<T>::DataAt(const char* key) const
 {
 	unsigned int hashedKey = HashFunction(key);
-	return m_data[hashedKey];
+	return m_data[hashedKey].Data();
 }
 
 template<typename T>
