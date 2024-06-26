@@ -37,44 +37,16 @@ private:
 		char* m_key;
 	
 	public:
-		Bucket() {}
-		~Bucket() {}
+		Bucket();
+		~Bucket();
 
-		void Add(const T& item, const char* key)
-		{
-			m_item = item;
-			m_key = key;
-		}
+		void Add(T& item, char* key);
+		void Clear();
 
-		void Clear()
-		{
-			m_item = nullptr;
-			m_key = nullptr;
-		}
+		T& Data();
+		const T& Data() const;
 
-		T& Data()
-		{
-			return *m_item;
-		}
-		const T& Data() const
-		{
-			return *m_item;
-		}
-
-		char* Key()
-		{
-			return m_key;
-		}
-		const char* Key() const
-		{
-			return m_key;
-		}
+		char* Key();
+		const char* Key() const;
 	};
-
 };
-
-
-//	HOW TO USE
-//	
-//	
-//
