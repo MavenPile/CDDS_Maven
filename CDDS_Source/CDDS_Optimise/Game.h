@@ -1,16 +1,11 @@
 #pragma once
 
-#include "raylib.h"
-#include "raymath.h"
-#include <random>
-#include <time.h>
-#include <iostream>
-
 #include "raylib-cpp.hpp"
-
 #include "HashTable.h"
+#include "HashTable.cpp"
 
 class Critter;
+class Vector2;
 
 class Game
 {
@@ -34,7 +29,7 @@ private:
 
 	//	TEXTURES
 
-	HashTable<raylib::Texture2D*> m_textures;
+	HashTable<Texture2D*> m_textures;
 
 	//	AVE FPS CALC
 	int m_totalFPS = 0;

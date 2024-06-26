@@ -1,6 +1,5 @@
 #include "Game.h"
 #include "Critter.h"
-#include "raylib.h"
 #include "raymath.h"
 #include <random>
 #include <time.h>
@@ -17,9 +16,24 @@ Game::Game()
     srand(time(NULL));
 
     //  INITIALISING TEXTURES
+    Texture2D* critTex = new (Texture2D)(LoadTexture("res/10.png"));
+    Texture2D* desTex = new (Texture2D)(LoadTexture("res/9.png"));
 
-    m_textures.Add(new raylib::Texture2D("res/10.png"), "critter_sprite");
-    m_textures.Add(new raylib::Texture2D("res/9.png"), "destroyer_sprite");
+    if (!IsTextureReady(*critTex))
+    {
+        std::cout << "critTex failed to load properly..." << std::endl;
+        
+        m_window->Close();
+    }
+    else if (!IsTextureReady(*desTex))
+    {
+        std::cout << "desTex failed to load properly..." << std::endl;
+        
+        m_window->Close();
+    }
+
+    m_textures.Add(critTex, "critter_texture");
+    m_textures.Add(desTex, "destroyer_texture");
 
     //  INITIALISING CRITTERS
     for (int i = 0; i < m_CRITTER_COUNT; i++)
@@ -35,14 +49,14 @@ Game::Game()
         m_critters[i]->Init(
             Vector2{ (float)(5 + rand() % (m_screenW - 10)), (float)(5 + (rand() % m_screenH - 10)) },
             velocity,
-            12, "res/10.png");
+            12, m_textures["critter_texture"]);
     }
 
     //  INITIALISING DESTROYER
     m_destroyer = new Critter();
     Vector2 velocity = { -100 + (rand() % 200), -100 + (rand() % 200) };
     velocity = Vector2Scale(Vector2Normalize(velocity), m_MAX_VELOCITY);
-    m_destroyer->Init(Vector2{ (float)(m_screenW >> 1), (float)(m_screenH >> 1) }, velocity, 20, "res/9.png");
+    m_destroyer->Init(Vector2{ (float)(m_screenW >> 1), (float)(m_screenH >> 1) }, velocity, 20, m_textures["destroyer_texture"]);
 
     m_timer = 1;
     m_nextSpawnPos = m_destroyer->GetPosition();
@@ -57,8 +71,8 @@ Game::~Game()
 
     delete m_destroyer;
 
-    delete m_textures["critter_sprite"];
-    delete m_textures["destroyer_sprite"];
+    delete m_textures["critter_texture"];
+    delete m_textures["destroyer_texture"];
 }
 
 void Game::Run()
@@ -168,7 +182,7 @@ void Game::Run()
                     Vector2 pos = m_destroyer->GetPosition();
                     pos = Vector2Add(pos, Vector2Scale(normal, -50));
                     // its pretty ineficient to keep reloading textures. ...if only there was something else we could do
-                    m_critters[i]->Init(pos, Vector2Scale(normal, -m_MAX_VELOCITY), 12, "res/10.png");
+                    m_critters[i]->Init(pos, Vector2Scale(normal, -m_MAX_VELOCITY), 12, m_textures["critter_texture"]);
                     break;
                 }
             }
