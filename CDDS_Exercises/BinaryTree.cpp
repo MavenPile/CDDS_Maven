@@ -17,53 +17,63 @@ bool BinaryTree::IsEmpty() const
 
 void BinaryTree::Insert(int a_nValue)
 {
-	if (m_pRoot != nullptr)
+	if (m_pRoot == nullptr)
 	{
-		TreeNode* currentNode = m_pRoot;
+		m_pRoot->SetData(a_nValue);
+	}
+	else
+	{
+		TreeNode* currentNode = new TreeNode(m_pRoot->GetData());
+		TreeNode* prevNode = m_pRoot;
 
 		while (currentNode != nullptr)
 		{
+			prevNode = currentNode;
+
 			if (a_nValue < currentNode->GetData())
 			{
 				currentNode = &currentNode->GetLeft();
+
+				if (currentNode == nullptr)
+				{
+					prevNode->SetLeft(*currentNode);
+				}
+
+				continue;
 			}
 			else if (a_nValue > currentNode->GetData())
 			{
 				currentNode = &currentNode->GetRight();
+
+				if (currentNode == nullptr)
+				{
+					prevNode->SetRight(*currentNode);
+				}
+
+				continue;
 			}
 			else if (a_nValue == currentNode->GetData())
 			{
 				break;
 			}
 		}
-	}
-	else
-	{
-		m_pRoot->SetData(a_nValue);
-	}
 
-
-	
-	if (m_pRoot != nullptr)
-	{
-		if (a_nValue < m_pRoot->GetData())
-		{
-
-		}
-	}
-	else
-	{
-
+		currentNode->SetData(a_nValue);
 	}
 }
 
 void BinaryTree::Remove(int a_nValue)
 {
+
 }
 
 TreeNode& BinaryTree::Find(int a_nValue)
 {
-	// TODO: insert return statement here
+	TreeNode* foundNode;
+
+	FindNode(a_nValue, foundNode, foundNode);
+
+	return *foundNode;
 }
 
 void BinaryTree::PrintOrdered()
@@ -81,6 +91,41 @@ void BinaryTree::Draw(TreeNode* selected)
 
 bool BinaryTree::FindNode(int a_nSearchValue, TreeNode*& ppOutNode, TreeNode*& ppOutParent)
 {
+	TreeNode* currentNode = m_pRoot;
+	TreeNode* prevNode = m_pRoot;
+
+	while (currentNode != nullptr)
+	{		
+		if (a_nSearchValue < currentNode->GetData())
+		{
+			prevNode = currentNode;
+			
+			currentNode = &currentNode->GetLeft();
+
+			if (currentNode == nullptr)
+			{
+				prevNode->SetLeft(*currentNode);
+			}
+		}
+		else if (a_nSearchValue > currentNode->GetData())
+		{
+			prevNode = currentNode;
+			
+			currentNode = &currentNode->GetRight();
+
+			if (currentNode == nullptr)
+			{
+				prevNode->SetRight(*currentNode);
+			}
+		}
+		else if (currentNode->GetData() == a_nSearchValue)
+		{
+			ppOutNode = currentNode;
+			ppOutParent = currentNode;
+			return true;
+		}
+	}
+
 	return false;
 }
 
